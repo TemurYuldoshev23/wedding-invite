@@ -1,118 +1,53 @@
-/* Rasmdagi Premium Warm Ivory & 3D Envelope Estetikasi */
+/* Canva & European Nude Premium Stillari */
 body {
-    font-family: 'Cormorant Garamond', serif;
-    background-color: #fcfaf6;
-    background-image: radial-gradient(circle at 50% 30%, #ffffff 0%, #fcfaf6 100%);
-    color: #38332a;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5ebe0;
+    background-image: 
+        radial-gradient(circle at 30% 20%, #fdfbf7 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, #e3d5ca 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #d5bdaf 0%, #f5ebe0 80%);
+    color: #4e4039;
 }
 
-.font-display { font-family: 'Cinzel', serif; }
-.font-italic { font-family: 'Playfair Display', serif; font-style: italic; }
-.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-serif { 
+    font-family: 'Cormorant Garamond', serif; 
+}
 
-/* Pre-loader Interaktiv Fon */
+.font-script { 
+    font-family: 'Great Vibes', cursive; 
+}
+
+/* Glassmorphic Cards */
+.canva-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(213, 189, 175, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 30px 70px rgba(142, 125, 115, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Konvert o'tish dinamikasi */
 .envelope-overlay {
-    background-color: #f5f0e6;
-    background-image: radial-gradient(circle at center, #ffffff 0%, #f5f0e6 100%);
-    transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), opacity 1.2s;
+    transition: all 1.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.envelope-fadeout {
-    transform: translateY(-100%) scale(1.02);
+.envelope-hidden {
+    transform: scale(1.03) translateY(-100%);
     opacity: 0;
     pointer-events: none;
 }
 
-/* 3D KONVERT ELEMENTLARI ARXITEKTURASI */
-.envelope-wrapper {
-    position: relative;
-    width: 290px;
-    height: 200px;
-    background-color: #eaddca;
-    z-index: 10;
+/* Markaziy telefon maketi */
+.phone-frame {
+    border: 10px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 40px 90px rgba(108, 92, 81, 0.2);
 }
 
-/* Konvertning Orqa Qismi */
-.envelope-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #e4d5be;
-    z-index: 1;
+.fade-in-element {
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
-/* ICHKI ASOSIY KARTA (Rasmdagidek tepaga chiqadi) */
-.letter-card {
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    right: 10px;
-    height: 180px;
-    background-color: #faf7f2;
-    border: 1px border #e3dac9;
-    z-index: 2;
-    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
-/* Konvert Qopqoqlari (Geometrik kesimlar) */
-.envelope-left {
-    position: absolute;
-    width: 0; height: 0;
-    border-top: 100px solid transparent;
-    border-bottom: 100px solid transparent;
-    border-left: 145px solid #ebdcb9;
-    z-index: 3;
-}
-
-.envelope-right {
-    position: absolute;
-    right: 0; width: 0; height: 0;
-    border-top: 100px solid transparent;
-    border-bottom: 100px solid transparent;
-    border-right: 145px solid #ebdcb9;
-    z-index: 3;
-}
-
-.envelope-top {
-    position: absolute;
-    top: 0; width: 0; height: 0;
-    border-left: 145px solid transparent;
-    border-right: 145px solid transparent;
-    border-top: 105px solid #dfcfab;
-    transform-origin: top;
-    transition: transform 0.6s ease-in-out;
-    z-index: 4;
-}
-
-/* Markaziy Oltin Muhr */
-.open-seal {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 46px; height: 46px;
-    background-color: #ffffff;
-    border: 1px solid #d4be94;
-    border-radius: 50%;
-    z-index: 5;
-    transition: all 0.4s ease;
-}
-
-/* ANIMATSIYA BOSHQARUVI (KLASLAR ORQALI) */
-.envelope-wrapper.open .envelope-top {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope-wrapper.open .letter-card {
-    transform: translateY(-110px);
-    height: 240px;
-    z-index: 4;
-}
-
-.envelope-wrapper.open .open-seal {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.tracking-bounce { animation: bounce 2s infinite; }
-@keyframes bounce { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-5px); opacity: 1; } }
