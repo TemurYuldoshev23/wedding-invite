@@ -1,53 +1,77 @@
-/* Premium Matviy To'q Qora Fon va Oltin Elementlar Stilistikasi */
+/* Premium Guldor va Royal Oltin Vizual Stilistikasi */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #0a0a0c;
+    background-color: #0d0907;
     background-image: 
-        radial-gradient(circle at 50% 0%, #1a1510 0%, #0a0a0c 70%),
-        radial-gradient(circle at 50% 100%, #16120e 0%, #0a0a0c 80%);
-    color: #f3f4f6;
+        radial-gradient(circle at 50% 0%, #291f16 0%, #0d0907 75%),
+        radial-gradient(circle at 50% 100%, #211812 0%, #0d0907 80%);
+    color: #f6f1eb;
 }
 
 .font-serif { font-family: 'Playfair Display', serif; }
 .font-script { font-family: 'Great Vibes', cursive; }
 
-/* Rolex / Luxury Oltin Gradient teksturasi */
+/* Global Oltin Teksturasi (Rolex & Luxury Standart) */
 .text-gold {
-    background: linear-gradient(135deg, #c5a059 0%, #fdf5e2 30%, #f4d08b 50%, #b3863a 85%, #dfba73 100%);
+    background: linear-gradient(135deg, #c5a059 0%, #fdf5e2 25%, #f4d08b 50%, #b3863a 75%, #dfba73 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 2px 10px rgba(197, 160, 89, 0.4));
+    filter: drop-shadow(0px 3px 12px rgba(197, 160, 89, 0.35));
 }
 
 .bg-gold {
     background: linear-gradient(135deg, #b3863a 0%, #fdf5e2 50%, #c5a059 100%);
 }
 
-/* Glassmorphism shisha effekti */
+/* Hashamatli Shisha Dizayni */
 .luxury-card {
-    background: rgba(13, 13, 17, 0.75);
-    border: 1px solid rgba(197, 160, 89, 0.18);
+    background: rgba(23, 17, 13, 0.75);
+    border: 1px solid rgba(197, 160, 89, 0.22);
     backdrop-filter: blur(20px);
-    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.03);
+    box-shadow: 0 45px 100px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.04);
 }
 
-/* Konvertning silliq yo'qolish effekti */
+/* Konvertning kirish qismidagi fon oq-qora bo'lmasligi uchun */
 .envelope-overlay {
-    transition: all 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    background-color: #0a0705;
+    background-image: radial-gradient(circle at center, #211811 0%, #0a0705 100%);
+    transition: all 1.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .envelope-fadeout {
-    transform: scale(1.05) translateY(-100%);
+    transform: scale(1.08) translateY(-110%);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Elegant siljish bounce animatsiyasi */
+/* Chiroyli suzuvchi varaqlash animatsiyasi */
 .tracking-bounce {
-    animation: bounce 2s infinite;
+    animation: bounce 2.2s infinite;
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-8px); opacity: 0.9; }
+}
+
+/* Ekrandan tushadigan professional pushti barglar uslubi */
+.petal {
+    position: absolute;
+    background-color: #ffb7c5;
+    border-radius: 150% 0 150% 150%;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 25;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
