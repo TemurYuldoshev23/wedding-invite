@@ -1,81 +1,59 @@
-// Premium Dinamik To'y Veb-Interaktivligi
 document.addEventListener("DOMContentLoaded", () => {
+    const envelopeWrapper = document.getElementById('envelopeWrapper');
     const envelopeScreen = document.getElementById('envelopeScreen');
-    const openBtn = document.getElementById('openBtn');
-    const musicBtn = document.getElementById('musicBtn');
+    const letterCard = document.getElementById('letterCard');
     const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
-    const flowerContainer = document.getElementById('flower-container');
+    const envTitle = document.getElementById('envTitle');
+    const envHint = document.getElementById('envHint');
 
-    // 1. Ekrandan mayin tushadigan hashamatli gullar yomg'iri tizimi
-    const createPetal = () => {
-        if (!flowerContainer) return;
-        const petal = document.createElement('div');
-        petal.classList.add('petal');
-        
-        // Tasodifiy o'lcham va joylashuv parametrlari
-        const size = Math.random() * 10 + 8 + 'px';
-        petal.style.width = size;
-        petal.style.height = size;
-        petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4-7 soniya orasida tushadi
-        
-        // Bir oz oltin tus aralashtirish
-        if (Math.random() > 0.6) {
-            petal.style.background = "linear-gradient(135deg, #fceabe 0%, #c5a059 100%)";
-        }
+    // 1. Konvertni bosganda animatsiyani ishga tushirish
+    if (envelopeWrapper) {
+        envelopeWrapper.addEventListener('click', (e) => {
+            // Animatsiyani boshlash klassini qo'shish
+            envelopeWrapper.classList.add('open');
+            if (envTitle) envTitle.style.opacity = '0';
+            if (envHint) envHint.style.opacity = '0';
 
-        flowerContainer.appendChild(petal);
-
-        // Xotirani tozalash
-        setTimeout(() => {
-            petal.remove();
-        }, 7000);
-    };
-
-    // 2. Konvertni ochish va musiqani avtomatik ijro etish
-    if (openBtn && envelopeScreen) {
-        openBtn.addEventListener('click', () => {
-            envelopeScreen.classList.add('envelope-fadeout');
-            
-            // Gullar yomg'irini boshlash
-            setInterval(createPetal, 250);
-
-            // Musiqa ijrosini boshlash (Enrique Iglesias - Ring My Bells)
-            if (bgMusic) {
+            // Musiqani chiroyli ijro etish
+            if (bgMusic && bgMusic.paused) {
                 bgMusic.play().then(() => {
-                    musicText.innerText = "MUSIQA: ON";
+                    musicText.innerText = "MUSIC: ON";
                     musicIcon.innerText = "🎵";
-                }).catch(err => {
-                    console.log("Avtomatik ijro bloklandi, sababi: " + err);
-                });
+                }).catch(err => console.log(err));
             }
+
+            // Karta to'liq chiqib bo'lgach (1.5 soniyadan keyin) asosiy ekran ochiladi
+            setTimeout(() => {
+                if (envelopeScreen) {
+                    envelopeScreen.classList.add('envelope-fadeout');
+                }
+            }, 2200);
         });
     }
 
-    // 3. Musiqani yoqish/o'chirish qo'lda boshqarish dasturi
+    // 2. Musiqa tugmasi sozlamasi
     if (musicBtn && bgMusic) {
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
-                musicText.innerText = "MUSIQA: ON";
+                musicText.innerText = "MUSIC: ON";
                 musicIcon.innerText = "🎵";
             } else {
                 bgMusic.pause();
-                musicText.innerText = "MUSIQA: OFF";
+                musicText.innerText = "MUSIC: OFF";
                 musicIcon.innerText = "🔇";
             }
         });
     }
 
-    // 4. Jonli Countdown Taymer (26-Iyun 2026, 18:00)
+    // 3. Taymer (26-Iyun 2026, 18:00)
     const weddingDate = new Date("June 26, 2026 18:00:00").getTime();
-
     const updateCountdown = () => {
         const now = new Date().getTime();
         const diff = weddingDate - now;
-
         if (diff < 0) return;
 
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -93,17 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mEl) mEl.innerText = minutes < 10 ? "0" + minutes : minutes;
         if (sEl) sEl.innerText = seconds < 10 ? "0" + seconds : seconds;
     };
-
     setInterval(updateCountdown, 1000);
 
-    // 5. RSVP Telegram bilan xavfsiz bog'lanish
+    // 4. RSVP to Telegram
     const rsvpForm = document.getElementById('rsvpForm');
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('guestName').value;
             const status = document.getElementById('attendance').value;
-            const message = `👑 NIKOH TO'YI RSVP TASDIQLASH:%0A👤 Mehmon: ${name}%0A✉️ Istak: ${status}%0A💍 To'y egalari: Ziyodullo %26 Ruxshona`;
+            const message = `⚜️ TO'Y RSVP TASDIQLASH:%0A👤 Mehmon: ${name}%0A✉️ Javob: ${status}%0A💍 To'y egalari: Ziyodullo %26 Ruxshona`;
             window.open(`https://t.me/share/url?url=${message}`, '_blank');
         });
     }
