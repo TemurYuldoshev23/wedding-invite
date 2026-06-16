@@ -1,41 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const envelopeWrapper = document.getElementById('envelopeWrapper');
     const envelopeScreen = document.getElementById('envelopeScreen');
-    const letterCard = document.getElementById('letterCard');
-    const bgMusic = document.getElementById('bgMusic');
+    const openBtn = document.getElementById('openBtn');
     const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
-    const envTitle = document.getElementById('envTitle');
-    const envHint = document.getElementById('envHint');
 
-    // 1. Konvertni bosganda animatsiyani ishga tushirish
-    if (envelopeWrapper) {
-        envelopeWrapper.addEventListener('click', (e) => {
-            // Animatsiyani boshlash klassini qo'shish
-            envelopeWrapper.classList.add('open');
-            if (envTitle) envTitle.style.opacity = '0';
-            if (envHint) envHint.style.opacity = '0';
-
-            // Musiqani chiroyli ijro etish
-            if (bgMusic && bgMusic.paused) {
-                bgMusic.play().then(() => {
-                    musicText.innerText = "MUSIC: ON";
-                    musicIcon.innerText = "🎵";
-                }).catch(err => console.log(err));
-            }
-
-            // Karta to'liq chiqib bo'lgach (1.5 soniyadan keyin) asosiy ekran ochiladi
-            setTimeout(() => {
-                if (envelopeScreen) {
-                    envelopeScreen.classList.add('envelope-fadeout');
-                }
-            }, 2200);
+    // 1. Konvert bosilganda ochish va musiqani pley qilish
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            envelopeScreen.classList.add('envelope-hidden');
+            
+            bgMusic.play().then(() => {
+                musicText.innerText = "MUSIC: ON";
+                musicIcon.innerText = "🎵";
+            }).catch(e => console.log("Avtomatik ijro to'sildi, tugma kutilmoqda."));
         });
     }
 
-    // 2. Musiqa tugmasi sozlamasi
-    if (musicBtn && bgMusic) {
+    // 2. Musiqa tugmasi on/off nazorati
+    if (musicBtn) {
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -49,39 +33,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Taymer (26-Iyun 2026, 18:00)
+    // 3. Jonli teskari taymer hisobi (Sana: 26-Iyun, 2026)
     const weddingDate = new Date("June 26, 2026 18:00:00").getTime();
-    const updateCountdown = () => {
+
+    setInterval(() => {
         const now = new Date().getTime();
         const diff = weddingDate - now;
+
         if (diff < 0) return;
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        const dEl = document.getElementById("days");
-        const hEl = document.getElementById("hours");
-        const mEl = document.getElementById("minutes");
-        const sEl = document.getElementById("seconds");
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+        }
+    }, 1000);
 
-        if (dEl) dEl.innerText = days < 10 ? "0" + days : days;
-        if (hEl) hEl.innerText = hours < 10 ? "0" + hours : hours;
-        if (mEl) mEl.innerText = minutes < 10 ? "0" + minutes : minutes;
-        if (sEl) sEl.innerText = seconds < 10 ? "0" + seconds : seconds;
-    };
-    setInterval(updateCountdown, 1000);
-
-    // 4. RSVP to Telegram
+    // 4. RSVP Telegram ulashish qismi
     const rsvpForm = document.getElementById('rsvpForm');
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('guestName').value;
             const status = document.getElementById('attendance').value;
-            const message = `⚜️ TO'Y RSVP TASDIQLASH:%0A👤 Mehmon: ${name}%0A✉️ Javob: ${status}%0A💍 To'y egalari: Ziyodullo %26 Ruxshona`;
-            window.open(`https://t.me/share/url?url=${message}`, '_blank');
+            const textMessage = `✨ To'yga Tashrif Tasdig'i (Canva Style):%0A👤 Mehmon: ${name}%0A✉️ Holati: ${status}%0A💍 Kimga: Ziyodullo %26 Ruxshona`;
+            window.open(`https://t.me/share/url?url=${textMessage}`, '_blank');
         });
     }
 });
