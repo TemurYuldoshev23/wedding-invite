@@ -1,37 +1,40 @@
-/* Warm Ivory & Champagne Gold Minimalist Wedding Aesthetic */
+/* Vogue & Editorial Fine-Art Wedding Style Aesthetics */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #fdfcfb;
-    background-image: radial-gradient(circle at 50% 30%, #ffffff 0%, #fdfcfb 100%);
-    color: #4a4540;
+    background-color: #faf8f5;
+    background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #faf8f5 100%);
+    color: #332d27;
 }
 
+/* Shriftlar sinfi */
+.font-display { font-family: 'Cinzel', serif; }
 .font-serif { font-family: 'Cormorant Garamond', serif; }
-.font-script { font-family: 'Alex Brush', cursive; }
+.font-script { font-family: 'Pinyon Script', cursive; }
 
-/* Kirish qismidagi konvert ekrani uchun fon (Sut rangli yorug' fon) */
+/* Kirish qismidagi konvert dizayni (Premium toza oq-krem foni) */
 .envelope-overlay {
-    background-color: #faf9f6;
-    background-image: radial-gradient(circle at center, #ffffff 0%, #faf9f6 100%);
-    transition: all 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+    background-color: #f7f5f0;
+    background-image: radial-gradient(circle at center, #ffffff 0%, #f7f5f0 100%);
+    transition: all 1.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .envelope-fadeout {
-    transform: scale(1.03) translateY(-100%);
+    transform: scale(1.02) translateY(-100%);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Yengil va chiroyli animatsiyalar */
+/* Yengil pastga varaqlash ishorasi animatsiyasi */
 .tracking-bounce {
-    animation: bounce 2s infinite;
+    animation: bounce 2.2s infinite;
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.5; }
-    50% { transform: translateY(-5px); opacity: 1; }
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-6px); opacity: 1; }
 }
 
+/* Kirish maydonlari uchun yengil soya va silliqlik */
 input, select {
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.01);
+    box-shadow: inset 0 1px 3px rgba(150, 125, 78, 0.02);
 }
