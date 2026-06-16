@@ -1,0 +1,84 @@
+/* Premium To'y Taklifnomasi uchun Maxsus CSS */
+
+/* 1. Umumiy Sahifa Sozlamalari */
+body {
+    background-color: #030303;
+    color: #f3f4f6;
+    background-image: radial-gradient(circle at 50% 50%, #0d0d0d 0%, #030303 100%);
+    overflow-x: hidden;
+}
+
+/* 2. Luxury Oltin Gradient (Matnlar uchun) */
+.text-gold {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 2px 8px rgba(186, 140, 50, 0.25));
+}
+
+/* Oltin Rangli Tugmalar va Fonlar */
+.bg-gold {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
+    color: #000000;
+}
+
+/* 3. Elegant va Yupqa Oltin Ramkalar */
+.luxury-box {
+    position: relative;
+    border: 1px solid rgba(191, 149, 63, 0.2);
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.luxury-box::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(191, 149, 63, 0.08);
+    border-radius: 18px;
+    pointer-events: none;
+}
+
+/* 4. Konvertning Silliq Yo'qolish Animatsiyasi */
+.envelope-fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.08) translateY(-40px);
+    transition: all 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 5. Scroll davomida elementlarning chiroyli chiqishi (Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Oltin Muhr uchun Pulsatsiya */
+.gold-seal {
+    box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7);
+    animation: pulse-seal 2s infinite;
+}
+
+@keyframes pulse-seal {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.5);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(191, 149, 63, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(191, 149, 63, 0);
+    }
+}
