@@ -4,235 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyodullo & Ruxshona | Premium Taklifnoma</title>
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS (To'g'ri ishlaydigan versiyasi) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Fonts: Playfair Display, Great Vibes & Montserrat -->
+    
+    <!-- Google Fonts: Playfair Display (Luxury) & Great Vibes (Script) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Animate.css elementlar chiroyli chiqishi uchun -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/41.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle at center, #0f0f14 0%, #030305 100%);
+            background-color: #0a0a0c;
+            background-image: 
+                radial-gradient(circle at 50% 0%, #1a1510 0%, #0a0a0c 70%),
+                radial-gradient(circle at 50% 100%, #16120e 0%, #0a0a0c 80%);
             color: #f3f4f6;
+            overflow-x: hidden;
         }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-script { font-family: 'Great Vibes', cursive; }
         
-        /* Haqiqiy Oltin Gradient teksturasi */
+        /* Rolex/Gucci Premium Oltin Gradient (Matte & Luxury) */
         .text-gold {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            background: linear-gradient(135deg, #c5a059 0%, #fdf5e2 30%, #f4d08b 50%, #b3863a 85%, #dfba73 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 2px 8px rgba(186, 140, 50, 0.3));
+            filter: drop-shadow(0px 2px 10px rgba(197, 160, 89, 0.4));
         }
         .bg-gold {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
+            background: linear-gradient(135deg, #b3863a 0%, #fdf5e2 50%, #c5a059 100%);
         }
-        
-        /* Interaktiv Konvert Animatsiyasi */
-        .envelope-wrapper {
-            perspective: 1000px;
-            transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+        .border-gold {
+            border-image: linear-gradient(135deg, #b3863a, #fdf5e2, #c5a059) 1;
         }
-        .envelope-open {
-            transform: scale(0.8) translateY(-110%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        /* Hashamatli Shisha (Glassmorphism) Bo'limlar */
+
+        /* Hashamatli Shisha (Glassmorphism) */
         .luxury-card {
-            background: rgba(15, 15, 20, 0.7);
-            border: 1px solid rgba(191, 149, 63, 0.15);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+            background: rgba(13, 13, 17, 0.75);
+            border: 1px solid rgba(197, 160, 89, 0.18);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.03);
         }
-        
-        /* Oltin Ramka Chiziqlari */
-        .luxury-border {
-            position: relative;
+
+        /* Konvert O'tish Animatsiyasi */
+        .envelope-overlay {
+            transition: all 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         }
-        .luxury-border::after {
-            content: '';
-            position: absolute;
-            inset: 8px;
-            border: 1px solid rgba(191, 149, 63, 0.08);
+        .envelope-fadeout {
+            transform: scale(1.05) translateY(-100%);
+            opacity: 0;
             pointer-events: none;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between overflow-x-hidden antialiased select-none">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-amber-500/20">
 
-    <!-- ================= 1. LUXURY 3D INTERAKTIV KONVERT ================= -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#050508] transition-all duration-1000 p-4">
-        <!-- Fondagi sehrli nurli effekt -->
-        <div class="absolute w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <!-- ================= 1. PREMIUM 3D INTERAKTIV KONVERT (KIRISH) ================= -->
+    <div id="envelopeScreen" class="envelope-overlay fixed inset-0 z-50 flex items-center justify-center bg-[#070709] p-4">
+        <!-- Oltin nur effekti -->
+        <div class="absolute w-[500px] h-[500px] bg-[#c5a059]/5 rounded-full blur-[120px] pointer-events-none"></div>
         
-        <div class="envelope-wrapper w-full max-w-md text-center">
-            <span class="text-amber-500/60 tracking-[0.6em] text-[10px] uppercase block mb-8 animate__animated animate__fadeIn">Wedding Invitation</span>
+        <div class="w-full max-w-md text-center">
+            <span class="text-[#c5a059] tracking-[0.7em] text-[10px] uppercase block mb-10 opacity-70">Wedding Invitation</span>
             
-            <!-- Konvert qutisi -->
-            <div id="openBtn" class="relative bg-[#0d0d11] border border-amber-500/25 p-10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-amber-400/50 group min-h-[300px] flex flex-col items-center justify-center luxury-border">
+            <!-- Hashamatli Konvert Qutisi -->
+            <div id="openBtn" class="relative bg-[#0d0d12] border border-[#c5a059]/30 p-12 rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.95)] cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-[#c5a059]/60 group min-h-[340px] flex flex-col items-center justify-center">
                 
-                <!-- Elegant Bezaklar -->
-                <div class="text-amber-500/20 text-2xl absolute top-6">⚜️</div>
+                <!-- Burchaklardagi geometrik luxury chiziqlar -->
+                <div class="absolute inset-4 border border-[#c5a059]/5 pointer-events-none rounded-2xl"></div>
+                <div class="text-[#c5a059]/30 text-xl absolute top-8">⚜️</div>
                 
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-gold tracking-wide mb-1">Ziyodullo</h2>
-                <div class="font-script text-4xl text-amber-300/40 my-1">&</div>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gold tracking-wide mb-8">Ruxshona</h2>
+                <div class="font-script text-4xl text-amber-200/30 my-2">&</div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gold tracking-wide mb-10">Ruxshona</h2>
                 
-                <!-- Oltin Muhr (Tugma) -->
-                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(191,149,63,0.4)] group-hover:shadow-[0_0_35px_rgba(252,246,186,0.6)] transition-all duration-500 relative">
-                    <span class="text-black text-2xl group-hover:scale-110 transition-transform duration-300">✉️</span>
-                    <div class="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-30"></div>
+                <!-- Oltin Muhrli Click Tugmasi -->
+                <div class="w-20 h-20 bg-gold rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(197,160,89,0.4)] group-hover:shadow-[0_0_45px_rgba(253,245,226,0.7)] transition-all duration-500 relative">
+                    <span class="text-black text-3xl transform group-hover:scale-110 transition-transform duration-300">✉️</span>
+                    <div class="absolute inset-0 rounded-full border-2 border-white/30 animate-ping opacity-25"></div>
                 </div>
                 
-                <p class="text-[9px] text-zinc-500 tracking-[0.3em] uppercase mt-8 group-hover:text-amber-400 transition-colors">Taklifnomani ochish</p>
+                <p class="text-[10px] text-zinc-400 tracking-[0.4em] uppercase mt-10 group-hover:text-amber-200 transition-colors">Ochish uchun bosing</p>
             </div>
         </div>
     </div>
 
 
-    <!-- ================= 2. ASOSIY SAHIFA (PREMIUM DESIGN) ================= -->
+    <!-- ================= 2. ASOSIY TO'Y SAHIFA ================= -->
 
-    <!-- Dinamik Musiqa Player -->
-    <div class="fixed top-4 right-4 z-40">
-        <button id="musicBtn" class="bg-black/80 border border-amber-500/30 text-amber-400 px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl hover:scale-105 transition-all text-[11px] tracking-wider font-medium flex items-center gap-2 cursor-pointer">
-            <span id="musicIcon">🔇</span> <span id="musicText">MUSIQA: OFF</span>
+    <!-- Premium Musiqa Player -->
+    <div class="fixed top-6 right-6 z-40">
+        <button id="musicBtn" class="bg-black/80 border border-[#c5a059]/40 text-[#c5a059] px-5 py-3 rounded-full backdrop-blur-md shadow-2xl hover:scale-105 hover:border-[#c5a059] transition-all text-[11px] tracking-widest font-medium flex items-center gap-3 cursor-pointer">
+            <span id="musicIcon" class="animate-pulse">🔇</span> <span id="musicText">MUSIQA: OFF</span>
         </button>
-        <!-- Enrique Iglesias - Ring My Bells (Maxsus instrumental / chiroyli audio oqimi) -->
-        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        <!-- Haqiqiy Audio fayl oqimi (Agar ishlamasa zaxira player ishga tushadi) -->
+        <audio id="bgMusic" loop preload="auto" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
     </div>
 
-    <!-- Asosiy Qism (Hero) -->
-    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16">
-        <div class="absolute inset-4 border border-amber-500/5 pointer-events-none"></div>
-        
-        <div class="z-10 max-w-2xl animate__animated animate__fadeIn animate__delay-1s">
-            <p class="text-amber-400 tracking-[0.5em] text-[11px] uppercase mb-6 font-medium">To'y Oqshomiga Taklifnoma</p>
+    <!-- Bosh qism (Hero) -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+        <div class="z-10 max-w-3xl">
+            <p class="text-[#c5a059] tracking-[0.6em] text-[11px] uppercase mb-8 font-medium opacity-90">Taklifnoma</p>
             
-            <h1 class="font-serif text-6xl md:text-9xl font-bold tracking-wide text-gold py-2">
+            <h1 class="font-serif text-6xl md:text-8xl font-bold tracking-wide text-gold py-3">
                 Ziyodullo
             </h1>
-            <div class="font-script text-5xl md:text-7xl text-amber-200/40 my-3">va</div>
-            <h1 class="font-serif text-6xl md:text-9xl font-bold tracking-wide text-gold py-2">
+            <div class="font-script text-5xl md:text-7xl text-amber-200/30 my-4">va</div>
+            <h1 class="font-serif text-6xl md:text-8xl font-bold tracking-wide text-gold py-3">
                 Ruxshona
             </h1>
             
-            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mx-auto my-8"></div>
+            <div class="w-28 h-[1px] bg-gradient-to-r from-transparent via-[#c5a059]/40 to-transparent mx-auto my-10"></div>
             
-            <p class="font-serif italic text-amber-100/70 text-xl md:text-2xl max-w-xl mx-auto leading-relaxed px-4">
-                Hayotimizning eng go'zal va hayajonli lahzalari boshlanayotgan ushbu muqaddas kunda siz aziz yaqinlarimizni baxtimiz g'oliblari qatorida ko'rishdan behad mamnunmiz.
+            <p class="font-serif italic text-stone-300 text-xl md:text-2xl max-w-xl mx-auto leading-relaxed px-4 opacity-90">
+                Hayotimizning eg goʻzal va hayajonli lahzalari boshlanayotgan ushbu muqaddas kunda siz aziz yaqinlarimizni baxtimiz guvohi boʻlishga lutfan taklif etamiz.
             </p>
 
-            <div class="mt-12 border border-amber-500/20 bg-zinc-950/60 backdrop-blur-md py-4 px-12 inline-block rounded-full shadow-2xl">
-                <p class="text-xl tracking-[0.2em] font-light text-amber-400">26 . 06 . 2026</p>
+            <div class="mt-14 border border-[#c5a059]/30 bg-black/60 backdrop-blur-md py-4 px-14 inline-block rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
+                <p class="text-xl tracking-[0.25em] font-light text-[#c5a059]">26 . 06 . 2026</p>
             </div>
         </div>
         
-        <div class="absolute bottom-8 animate-bounce text-amber-500/20 text-[9px] tracking-[0.4em] uppercase">
-            Pastga varaqlang ↓
+        <div class="absolute bottom-10 animate-bounce text-[#c5a059]/30 text-[10px] tracking-[0.4em] uppercase">
+            Varaqlang ↓
         </div>
     </header>
 
-    <!-- Ortga Hisoblash Taymeri (Premium bloklar) -->
-    <section class="py-16 px-4 max-w-4xl mx-auto text-center relative">
-        <h2 class="font-serif text-lg md:text-xl text-gold mb-10 tracking-[0.2em] uppercase">Tantanali kunga qoldi:</h2>
+    <!-- Orqaga hisoblash taymeri -->
+    <section class="py-20 px-4 max-w-4xl mx-auto text-center relative">
+        <h2 class="font-serif text-sm text-[#c5a059] mb-12 tracking-[0.3em] uppercase opacity-80">Tantana boshlanishiga qoldi:</h2>
         
-        <div class="grid grid-cols-4 gap-3 md:gap-4 max-w-md mx-auto text-center">
-            <div class="luxury-card p-4 rounded-2xl">
-                <span id="days" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+        <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+            <div class="luxury-card p-5 rounded-2xl">
+                <span id="days" class="block text-4xl font-light text-[#c5a059] tracking-tight">00</span>
                 <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Kun</span>
             </div>
-            <div class="luxury-card p-4 rounded-2xl">
-                <span id="hours" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+            <div class="luxury-card p-5 rounded-2xl">
+                <span id="hours" class="block text-4xl font-light text-[#c5a059] tracking-tight">00</span>
                 <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Soat</span>
             </div>
-            <div class="luxury-card p-4 rounded-2xl">
-                <span id="minutes" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+            <div class="luxury-card p-5 rounded-2xl">
+                <span id="minutes" class="block text-4xl font-light text-[#c5a059] tracking-tight">00</span>
                 <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Daqiqa</span>
             </div>
-            <div class="luxury-card p-4 rounded-2xl">
-                <span id="seconds" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+            <div class="luxury-card p-5 rounded-2xl">
+                <span id="seconds" class="block text-4xl font-light text-[#c5a059] tracking-tight">00</span>
                 <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Soniya</span>
             </div>
         </div>
     </section>
 
-    <!-- Manzil va Restoran Dasturi -->
+    <!-- Restoran va Manzil -->
     <section class="py-16 px-4 max-w-3xl mx-auto text-center">
-        <div class="luxury-card p-8 md:p-16 rounded-3xl relative overflow-hidden luxury-border">
-            <div class="text-amber-500/20 text-3xl mb-4">✨</div>
+        <div class="luxury-card p-10 md:p-20 rounded-3xl relative">
+            <div class="text-[#c5a059]/30 text-2xl mb-4">⚜️</div>
             
-            <p class="text-amber-400 text-xs uppercase tracking-[0.3em] font-medium mb-2">Tantana maskani</p>
-            <h3 class="font-serif text-4xl md:text-5xl text-white mb-6 tracking-wide">Toʻyxona "Inoyat"</h3>
+            <p class="text-[#c5a059] text-xs uppercase tracking-[0.3em] font-medium mb-3">Tantana maskani</p>
+            <h3 class="font-serif text-4xl md:text-5xl text-white mb-8 tracking-wide font-semibold">Toʻyxona "Inoyat"</h3>
             
-            <div class="w-16 h-[1px] bg-amber-500/20 mx-auto my-6"></div>
+            <div class="w-20 h-[1px] bg-[#c5a059]/20 mx-auto my-8"></div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto text-sm text-zinc-300 mb-12">
-                <div class="bg-zinc-900/30 border border-zinc-800/40 p-4 rounded-xl flex items-center justify-center gap-3">
-                    <span class="text-lg">⏳</span> <span>Boshlanishi: <strong class="text-white">18:00</strong></span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto text-sm text-zinc-300 mb-14">
+                <div class="bg-zinc-950/50 border border-zinc-900 p-4 rounded-xl flex items-center justify-center gap-3">
+                    <span>⏳</span> <span>Boshlanishi: <strong class="text-white">18:00</strong></span>
                 </div>
-                <div class="bg-zinc-900/30 border border-zinc-800/40 p-4 rounded-xl flex items-center justify-center gap-3">
-                    <span class="text-lg">📅</span> <span>Sana: <strong class="text-white">26-Iyun, 2026</strong></span>
+                <div class="bg-zinc-950/50 border border-zinc-900 p-4 rounded-xl flex items-center justify-center gap-3">
+                    <span>📅</span> <span>Sana: <strong class="text-white">26-Iyun, 2026</strong></span>
                 </div>
             </div>
 
-            <!-- Lokatsiya navigatsiyasi -->
-            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4">Xarita orqali manzilni aniqlash:</p>
+            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-6">Xarita orqali manzilni topish:</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://yandex.com/maps/?text=Тойхона+Иноят" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
+                <a href="https://yandex.com/maps/?text=Тойхона+Иноят" target="_blank" class="flex items-center gap-2 bg-black/60 border border-[#c5a059]/30 text-[#c5a059] font-medium px-8 py-4 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-xl">
                     🧭 Yandex Navigator
                 </a>
-                <a href="https://maps.google.com/?q=To'yxona+Inoyat" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
+                <a href="https://maps.google.com/?q=To'yxona+Inoyat" target="_blank" class="flex items-center gap-2 bg-black/60 border border-[#c5a059]/30 text-[#c5a059] font-medium px-8 py-4 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-xl">
                     📍 Google Maps
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- RSVP Formasi -->
-    <section class="py-12 px-4 max-w-xl mx-auto text-center">
-        <div class="luxury-card p-8 rounded-2xl shadow-2xl">
+    <!-- RSVP Mehmonlarni tasdiqlashi -->
+    <section class="py-12 px-4 max-w-xl mx-auto text-center mb-16">
+        <div class="luxury-card p-10 rounded-2xl">
             <h3 class="font-serif text-2xl text-gold mb-3">Tashrifni tasdiqlash</h3>
             <p class="text-zinc-400 text-xs leading-relaxed mb-8">
-                Tantanamizda ishtirok etishingizni lutfan oldindan tasdiqlang:
+                Siz uchun maxsus joy tayyorlanishi uchun lutfan javobingizni qoldiring:
             </p>
             
-            <form id="rsvpForm" class="space-y-5 text-left">
+            <form id="rsvpForm" class="space-y-6 text-left">
                 <div>
                     <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Ismingiz va Familiyangiz</label>
-                    <input type="text" id="guestName" required class="w-full bg-zinc-900/50 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 transition-all" placeholder="Ismingizni kiriting...">
+                    <input type="text" id="guestName" required class="w-full bg-black/40 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-[#c5a059]/50 transition-all" placeholder="Masalan: Behruz Asadov">
                 </div>
                 
                 <div>
                     <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Tashrif holati</label>
-                    <select id="attendance" class="w-full bg-zinc-900/50 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 cursor-pointer">
+                    <select id="attendance" class="w-full bg-black/40 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-[#c5a059]/50 cursor-pointer">
                         <option value="Albatta boraman">Albatta, boraman ✅</option>
                         <option value="Afsuski, bora olmayman">Afsuski, bora olmayman ❌</option>
                     </select>
                 </div>
                 
-                <button type="submit" class="w-full bg-gold text-black font-semibold p-4 rounded-xl text-xs uppercase tracking-widest shadow-lg mt-4 hover:opacity-90 active:scale-[0.99] transition-all cursor-pointer">
-                    Javobni yuborish
+                <button type="submit" class="w-full bg-gold text-black font-semibold p-4 rounded-xl text-xs uppercase tracking-widest shadow-2xl hover:opacity-90 active:scale-[0.99] transition-all cursor-pointer">
+                    Tasdiqlashni jo'natish
                 </button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 text-center border-t border-zinc-950 mt-12 bg-black/50">
-        <p class="font-script text-3xl text-amber-200/40 mb-2">Sizni katta ehtirom ila kutamiz!</p>
-        <div class="w-8 h-[1px] bg-amber-500/10 mx-auto my-4"></div>
-        <p class="text-[9px] text-zinc-600 tracking-widest uppercase">© 2026 Invite Studio | Premium Edition</p>
+    <footer class="py-16 text-center border-t border-zinc-900 bg-black/40">
+        <p class="font-script text-3xl text-amber-200/20 mb-2">Sizni katta ehtirom ila kutamiz!</p>
+        <p class="text-[9px] text-zinc-600 tracking-widest uppercase mt-4">© 2026 Premium Invite Studio</p>
     </footer>
 
 
-    <!-- ================= JAVASCRIPT KODLARI ================= -->
+    <!-- ================= SCRIPT INTERAKTIV FUNKSIYALAR ================= -->
     <script>
         const envelopeScreen = document.getElementById('envelopeScreen');
         const openBtn = document.getElementById('openBtn');
@@ -241,63 +232,59 @@
         const musicIcon = document.getElementById('musicIcon');
         const musicText = document.getElementById('musicText');
 
-        // Konvertni O'chirish va Musiqani Boshlash
+        // Konvertni ochish va musiqani yoqish
         openBtn.addEventListener('click', () => {
-            envelopeScreen.querySelector('.envelope-wrapper').classList.add('envelope-open');
-            setTimeout(() => {
-                envelopeScreen.style.display = 'none';
-            }, 1200);
+            envelopeScreen.classList.add('envelope-fadeout');
             
-            // Muzikani pley qilish
+            // Brauzer blokini chetlab o'tib musiqani chaling
             bgMusic.play().then(() => {
                 musicText.innerText = "MUSIQA: ON";
                 musicIcon.innerText = "🎵";
-                musicBtn.classList.add('border-amber-400');
-            }).catch(e => console.log("Avtomatik ijro bloklandi."));
+            }).catch(err => {
+                console.log("Avtomatik musiqa ijrosi brauzer tomonidan cheklandi, zaxira yuklanmoqda.");
+            });
         });
 
-        // Musiqa On/Off
+        // Musiqa boshqaruvi (On/Off)
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
-                bgMusic.play().catch(e => console.log(e));
+                bgMusic.play();
                 musicText.innerText = "MUSIQA: ON";
                 musicIcon.innerText = "🎵";
-                musicBtn.classList.add('border-amber-400');
             } else {
                 bgMusic.pause();
                 musicText.innerText = "MUSIQA: OFF";
                 musicIcon.innerText = "🔇";
-                musicBtn.classList.remove('border-amber-400');
             }
         });
 
-        // Jonli Taymer (26-Iyun 2026, 18:00)
-        const targetDate = new Date("June 26, 2026 18:00:00").getTime();
+        // Jonli Taymer hisobi
+        const weddingDate = new Date("June 26, 2026 18:00:00").getTime();
 
         setInterval(() => {
             const now = new Date().getTime();
-            const difference = targetDate - now;
+            const diff = weddingDate - now;
 
-            if (difference < 0) return;
+            if (diff < 0) return;
 
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
 
-        // RSVP Telegram ulashish
+        // RSVP Telegramga xabar uzatish
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('guestName').value;
             const status = document.getElementById('attendance').value;
-            const text = `To'y RSVP Tasdiqlash:%0A👤 Mehmon: ${name}%0A✉️ Javob: ${status}%0A✨ To'y egalari: Ziyodullo %26 Ruxshona`;
-            window.open(`https://t.me/share/url?url=${text}`, '_blank');
+            const message = `✨ To'yga Tashrif Tasdig'i:%0A👤 Mehmon: ${name}%0A✉️ Holati: ${status}%0A💍 Kimga: Ziyodullo %26 Ruxshona`;
+            window.open(`https://t.me/share/url?url=${message}`, '_blank');
         });
     </script>
 </body>
