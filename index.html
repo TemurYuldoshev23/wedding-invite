@@ -3,233 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziyodullo & Ruxshona | Premium Invitation</title>
+    <title>Ziyodullo & Ruxshona | Premium Taklifnoma</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Google Fonts: Playfair Display, Great Vibes & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Animate.css elementlar chiroyli chiqishi uchun -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/41.1.1/animate.min.css"/>
+    
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #030303;
+            background: radial-gradient(circle at center, #0f0f14 0%, #030305 100%);
             color: #f3f4f6;
-            background-image: radial-gradient(circle at 50% 50%, #0d0d0d 0%, #030303 100%);
         }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .font-script {
-            font-family: 'Great Vibes', cursive;
-        }
-        /* Oltin Rangli Gradientlar */
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        
+        /* Haqiqiy Oltin Gradient teksturasi */
         .text-gold {
             background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(186, 140, 50, 0.2);
+            filter: drop-shadow(0px 2px 8px rgba(186, 140, 50, 0.3));
         }
         .bg-gold {
             background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
         }
-        .border-gold {
-            border-image: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c) 1;
+        
+        /* Interaktiv Konvert Animatsiyasi */
+        .envelope-wrapper {
+            perspective: 1000px;
+            transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
         }
-        /* Konvert Silliq Yo'qolishi */
-        .fade-out {
+        .envelope-open {
+            transform: scale(0.8) translateY(-110%);
             opacity: 0;
             pointer-events: none;
-            transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-            transform: scale(1.1) translateY(-50px);
         }
-        /* Elegant Ramkalar */
-        .luxury-box {
+        
+        /* Hashamatli Shisha (Glassmorphism) Bo'limlar */
+        .luxury-card {
+            background: rgba(15, 15, 20, 0.7);
+            border: 1px solid rgba(191, 149, 63, 0.15);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        
+        /* Oltin Ramka Chiziqlari */
+        .luxury-border {
             position: relative;
-            border: 1px solid rgba(191, 149, 63, 0.2);
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(12px);
         }
-        .luxury-box::before {
+        .luxury-border::after {
             content: '';
             position: absolute;
-            inset: 4px;
-            border: 1px solid rgba(191, 149, 63, 0.1);
+            inset: 8px;
+            border: 1px solid rgba(191, 149, 63, 0.08);
             pointer-events: none;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden antialiased select-none">
 
-    <!-- ================= 1. KREATIV KONVERT (WELCOME ENVELOPE) ================= -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070707] transition-all duration-1000 overflow-hidden">
-        <!-- Orqa fondagi hashamatli geometrik nur -->
-        <div class="absolute w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <!-- ================= 1. LUXURY 3D INTERAKTIV KONVERT ================= -->
+    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#050508] transition-all duration-1000 p-4">
+        <!-- Fondagi sehrli nurli effekt -->
+        <div class="absolute w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
         
-        <div class="z-10 text-center px-4 max-w-sm w-full">
-            <span class="text-amber-400 tracking-[0.6em] text-[10px] uppercase block mb-12">Wedding Invitation</span>
+        <div class="envelope-wrapper w-full max-w-md text-center">
+            <span class="text-amber-500/60 tracking-[0.6em] text-[10px] uppercase block mb-8 animate__animated animate__fadeIn">Wedding Invitation</span>
             
-            <!-- Realistik Elegant Konvert Dizayni -->
-            <div id="openBtn" class="group relative bg-[#0f0f0f] border border-amber-500/20 p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_25px_60px_rgba(170,119,28,0.15)] flex flex-col items-center justify-center min-h-[260px]">
-                <!-- Konvert Ichidagi Chiziqlar -->
-                <div class="absolute inset-2 border border-amber-500/5 rounded-xl pointer-events-none"></div>
+            <!-- Konvert qutisi -->
+            <div id="openBtn" class="relative bg-[#0d0d11] border border-amber-500/25 p-10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-amber-400/50 group min-h-[300px] flex flex-col items-center justify-center luxury-border">
                 
-                <h2 class="font-serif text-3xl font-bold text-gold tracking-wide mb-2">Ziyodullo</h2>
-                <p class="font-script text-3xl text-amber-200/40 my-1">&</p>
-                <h2 class="font-serif text-3xl font-bold text-gold tracking-wide mb-6">Ruxshona</h2>
+                <!-- Elegant Bezaklar -->
+                <div class="text-amber-500/20 text-2xl absolute top-6">⚜️</div>
                 
-                <!-- Oltin Rangli Kreativ Muhr Tugmasi -->
-                <div class="w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(191,149,63,0.5)] group-hover:scale-110 transition-all duration-300 relative">
-                    <span class="text-black text-xl animate-pulse">✉️</span>
-                    <!-- Muhr atrofidagi aylanma effekt -->
-                    <div class="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-40"></div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gold tracking-wide mb-1">Ziyodullo</h2>
+                <div class="font-script text-4xl text-amber-300/40 my-1">&</div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gold tracking-wide mb-8">Ruxshona</h2>
+                
+                <!-- Oltin Muhr (Tugma) -->
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(191,149,63,0.4)] group-hover:shadow-[0_0_35px_rgba(252,246,186,0.6)] transition-all duration-500 relative">
+                    <span class="text-black text-2xl group-hover:scale-110 transition-transform duration-300">✉️</span>
+                    <div class="absolute inset-0 rounded-full border border-white/40 animate-ping opacity-30"></div>
                 </div>
                 
-                <p class="text-[10px] text-zinc-500 tracking-[0.2em] uppercase mt-6 group-hover:text-amber-400 transition-colors">Ochish uchun bosing</p>
+                <p class="text-[9px] text-zinc-500 tracking-[0.3em] uppercase mt-8 group-hover:text-amber-400 transition-colors">Taklifnomani ochish</p>
             </div>
         </div>
     </div>
 
 
-    <!-- ================= ASOSIY SAHIFA ================= -->
+    <!-- ================= 2. ASOSIY SAHIFA (PREMIUM DESIGN) ================= -->
 
-    <!-- Musiqa Boshqaruv Tugmasi -->
+    <!-- Dinamik Musiqa Player -->
     <div class="fixed top-4 right-4 z-40">
-        <button id="musicBtn" class="bg-black/90 border border-amber-500/30 text-amber-400 px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl hover:scale-105 transition-all text-[11px] tracking-wider font-medium flex items-center gap-2 cursor-pointer">
+        <button id="musicBtn" class="bg-black/80 border border-amber-500/30 text-amber-400 px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl hover:scale-105 transition-all text-[11px] tracking-wider font-medium flex items-center gap-2 cursor-pointer">
             <span id="musicIcon">🔇</span> <span id="musicText">MUSIQA: OFF</span>
         </button>
-        <!-- Enrique Iglesias - Ring My Bells (Romantik modern pleyer uchun xavfsiz ochiq havola) -->
-        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+        <!-- Enrique Iglesias - Ring My Bells (Maxsus instrumental / chiroyli audio oqimi) -->
+        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
     </div>
 
-    <!-- 2. Hero Section (Asosiy Elegant Qism) -->
-    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-12">
-        <div class="absolute inset-6 border border-amber-500/5 pointer-events-none"></div>
+    <!-- Asosiy Qism (Hero) -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16">
+        <div class="absolute inset-4 border border-amber-500/5 pointer-events-none"></div>
         
-        <!-- Yuqori nafis naqsh simvoli -->
-        <div class="text-amber-500/30 text-3xl mb-4 font-light">⚜️</div>
-        
-        <div class="z-10 max-w-2xl">
-            <p class="text-amber-400 tracking-[0.5em] text-[11px] uppercase mb-8 font-medium">To'y Oqshomiga Taklifnoma</p>
+        <div class="z-10 max-w-2xl animate__animated animate__fadeIn animate__delay-1s">
+            <p class="text-amber-400 tracking-[0.5em] text-[11px] uppercase mb-6 font-medium">To'y Oqshomiga Taklifnoma</p>
             
-            <h1 class="font-serif text-5xl md:text-8xl font-bold mb-4 tracking-wide text-gold py-2">
+            <h1 class="font-serif text-6xl md:text-9xl font-bold tracking-wide text-gold py-2">
                 Ziyodullo
             </h1>
-            <div class="font-script text-4xl md:text-6xl text-amber-300/50 my-2">va</div>
-            <h1 class="font-serif text-5xl md:text-8xl font-bold mb-8 tracking-wide text-gold py-2">
+            <div class="font-script text-5xl md:text-7xl text-amber-200/40 my-3">va</div>
+            <h1 class="font-serif text-6xl md:text-9xl font-bold tracking-wide text-gold py-2">
                 Ruxshona
             </h1>
             
-            <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mx-auto my-8"></div>
+            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mx-auto my-8"></div>
             
-            <p class="font-serif italic text-amber-100/70 text-lg md:text-2xl max-w-lg mx-auto leading-relaxed px-4">
-                Yaratganning izni ila boshlanayotgan go'zal hayotimiz kunida siz aziz dillarimizni baxtimiz guvohi bo'lishga chorlaymiz.
+            <p class="font-serif italic text-amber-100/70 text-xl md:text-2xl max-w-xl mx-auto leading-relaxed px-4">
+                Hayotimizning eng go'zal va hayajonli lahzalari boshlanayotgan ushbu muqaddas kunda siz aziz yaqinlarimizni baxtimiz g'oliblari qatorida ko'rishdan behad mamnunmiz.
             </p>
 
-            <div class="mt-12 border border-amber-500/20 bg-zinc-950/60 backdrop-blur-md py-4 px-12 inline-block rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+            <div class="mt-12 border border-amber-500/20 bg-zinc-950/60 backdrop-blur-md py-4 px-12 inline-block rounded-full shadow-2xl">
                 <p class="text-xl tracking-[0.2em] font-light text-amber-400">26 . 06 . 2026</p>
             </div>
         </div>
         
-        <div class="absolute bottom-8 animate-bounce text-amber-500/30 text-[9px] tracking-[0.4em] uppercase">
-            Pastga suring ↓
+        <div class="absolute bottom-8 animate-bounce text-amber-500/20 text-[9px] tracking-[0.4em] uppercase">
+            Pastga varaqlang ↓
         </div>
     </header>
 
-    <!-- 3. Ortga Hisoblash Taymeri (Premium Look) -->
+    <!-- Ortga Hisoblash Taymeri (Premium bloklar) -->
     <section class="py-16 px-4 max-w-4xl mx-auto text-center relative">
-        <h2 class="font-serif text-xl md:text-2xl text-gold mb-10 tracking-widest uppercase">Baxtli lahzalarga qoldi:</h2>
+        <h2 class="font-serif text-lg md:text-xl text-gold mb-10 tracking-[0.2em] uppercase">Tantanali kunga qoldi:</h2>
         
-        <div class="grid grid-cols-4 gap-4 max-w-sm md:max-w-md mx-auto text-center">
-            <div class="luxury-box p-4 rounded-xl shadow-2xl">
-                <span id="days" class="block text-3xl font-light text-amber-400 tracking-tight">00</span>
-                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-1.5 block">Kun</span>
+        <div class="grid grid-cols-4 gap-3 md:gap-4 max-w-md mx-auto text-center">
+            <div class="luxury-card p-4 rounded-2xl">
+                <span id="days" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Kun</span>
             </div>
-            <div class="luxury-box p-4 rounded-xl shadow-2xl">
-                <span id="hours" class="block text-3xl font-light text-amber-400 tracking-tight">00</span>
-                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-1.5 block">Soat</span>
+            <div class="luxury-card p-4 rounded-2xl">
+                <span id="hours" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Soat</span>
             </div>
-            <div class="luxury-box p-4 rounded-xl shadow-2xl">
-                <span id="minutes" class="block text-3xl font-light text-amber-400 tracking-tight">00</span>
-                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-1.5 block">Daqiqa</span>
+            <div class="luxury-card p-4 rounded-2xl">
+                <span id="minutes" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Daqiqa</span>
             </div>
-            <div class="luxury-box p-4 rounded-xl shadow-2xl">
-                <span id="seconds" class="block text-3xl font-light text-amber-400 tracking-tight">00</span>
-                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-1.5 block">Soniya</span>
+            <div class="luxury-card p-4 rounded-2xl">
+                <span id="seconds" class="block text-4xl font-light text-amber-400 tracking-tight">00</span>
+                <span class="text-[9px] uppercase tracking-widest text-zinc-500 mt-2 block">Soniya</span>
             </div>
         </div>
     </section>
 
-    <!-- 4. Dastur va Navigatsiya (Chiroyli Karta) -->
+    <!-- Manzil va Restoran Dasturi -->
     <section class="py-16 px-4 max-w-3xl mx-auto text-center">
-        <div class="luxury-box p-8 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden">
-            <div class="text-amber-500/20 text-4xl mb-4">✨</div>
+        <div class="luxury-card p-8 md:p-16 rounded-3xl relative overflow-hidden luxury-border">
+            <div class="text-amber-500/20 text-3xl mb-4">✨</div>
             
-            <p class="text-amber-400 text-xs uppercase tracking-[0.3em] font-medium mb-2">Tantana Manzili</p>
+            <p class="text-amber-400 text-xs uppercase tracking-[0.3em] font-medium mb-2">Tantana maskani</p>
             <h3 class="font-serif text-4xl md:text-5xl text-white mb-6 tracking-wide">Toʻyxona "Inoyat"</h3>
             
             <div class="w-16 h-[1px] bg-amber-500/20 mx-auto my-6"></div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto text-sm text-zinc-300 mb-12">
-                <div class="bg-zinc-900/40 border border-zinc-800/60 p-4 rounded-xl flex items-center justify-center gap-3">
+                <div class="bg-zinc-900/30 border border-zinc-800/40 p-4 rounded-xl flex items-center justify-center gap-3">
                     <span class="text-lg">⏳</span> <span>Boshlanishi: <strong class="text-white">18:00</strong></span>
                 </div>
-                <div class="bg-zinc-900/40 border border-zinc-800/60 p-4 rounded-xl flex items-center justify-center gap-3">
+                <div class="bg-zinc-900/30 border border-zinc-800/40 p-4 rounded-xl flex items-center justify-center gap-3">
                     <span class="text-lg">📅</span> <span>Sana: <strong class="text-white">26-Iyun, 2026</strong></span>
                 </div>
             </div>
 
-            <!-- Joylashuv Tugmalari -->
-            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4">To'yxonaga marshrut chizish:</p>
+            <!-- Lokatsiya navigatsiyasi -->
+            <p class="text-zinc-500 text-[10px] uppercase tracking-widest mb-4">Xarita orqali manzilni aniqlash:</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://yandex.com/maps/?text=Тойхона+Иноят" target="_blank" class="flex items-center gap-2 bg-zinc-900/80 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
+                <a href="https://yandex.com/maps/?text=Тойхона+Иноят" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
                     🧭 Yandex Navigator
                 </a>
-                <a href="https://maps.google.com/?q=To'yxona+Inoyat" target="_blank" class="flex items-center gap-2 bg-zinc-900/80 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
+                <a href="https://maps.google.com/?q=To'yxona+Inoyat" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-amber-500/20 text-amber-400 font-medium px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-gold hover:text-black transition-all shadow-md">
                     📍 Google Maps
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 5. RSVP Formasi -->
+    <!-- RSVP Formasi -->
     <section class="py-12 px-4 max-w-xl mx-auto text-center">
-        <div class="luxury-box p-8 rounded-2xl shadow-xl">
-            <h3 class="font-serif text-2xl text-gold mb-3">Tashrifingizni tasdiqlang</h3>
+        <div class="luxury-card p-8 rounded-2xl shadow-2xl">
+            <h3 class="font-serif text-2xl text-gold mb-3">Tashrifni tasdiqlash</h3>
             <p class="text-zinc-400 text-xs leading-relaxed mb-8">
-                Siz uchun maxsus joy ajratishimiz uchun lutfan javobingizni qoldiring:
+                Tantanamizda ishtirok etishingizni lutfan oldindan tasdiqlang:
             </p>
             
             <form id="rsvpForm" class="space-y-5 text-left">
                 <div>
                     <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Ismingiz va Familiyangiz</label>
-                    <input type="text" id="guestName" required class="w-full bg-zinc-900/60 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 transition-all" placeholder="Ismingizni kiriting...">
+                    <input type="text" id="guestName" required class="w-full bg-zinc-900/50 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 transition-all" placeholder="Ismingizni kiriting...">
                 </div>
                 
                 <div>
-                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Tashrifingiz</label>
-                    <select id="attendance" class="w-full bg-zinc-900/60 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 cursor-pointer">
+                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Tashrif holati</label>
+                    <select id="attendance" class="w-full bg-zinc-900/50 border border-zinc-800 text-white rounded-xl p-4 text-sm focus:outline-none focus:border-amber-500/40 cursor-pointer">
                         <option value="Albatta boraman">Albatta, boraman ✅</option>
                         <option value="Afsuski, bora olmayman">Afsuski, bora olmayman ❌</option>
                     </select>
                 </div>
                 
                 <button type="submit" class="w-full bg-gold text-black font-semibold p-4 rounded-xl text-xs uppercase tracking-widest shadow-lg mt-4 hover:opacity-90 active:scale-[0.99] transition-all cursor-pointer">
-                    Javobni tasdiqlash
+                    Javobni yuborish
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- 6. Footer -->
-    <footer class="py-16 text-center border-t border-zinc-950 mt-12 bg-black/40">
-        <p class="font-script text-3xl text-amber-200/40 mb-2">Sizni ehtirom ila kutamiz</p>
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-zinc-950 mt-12 bg-black/50">
+        <p class="font-script text-3xl text-amber-200/40 mb-2">Sizni katta ehtirom ila kutamiz!</p>
         <div class="w-8 h-[1px] bg-amber-500/10 mx-auto my-4"></div>
-        <p class="text-[9px] text-zinc-600 tracking-widest uppercase">© 2026 Invite Studio | Premium Custom Design</p>
+        <p class="text-[9px] text-zinc-600 tracking-widest uppercase">© 2026 Invite Studio | Premium Edition</p>
     </footer>
 
 
-    <!-- ================= JAVASCRIPT CODE ================= -->
+    <!-- ================= JAVASCRIPT KODLARI ================= -->
     <script>
         const envelopeScreen = document.getElementById('envelopeScreen');
         const openBtn = document.getElementById('openBtn');
@@ -238,24 +241,25 @@
         const musicIcon = document.getElementById('musicIcon');
         const musicText = document.getElementById('musicText');
 
-        // Konvertni Kreativ Ochish
+        // Konvertni O'chirish va Musiqani Boshlash
         openBtn.addEventListener('click', () => {
-            envelopeScreen.classList.add('fade-out');
+            envelopeScreen.querySelector('.envelope-wrapper').classList.add('envelope-open');
+            setTimeout(() => {
+                envelopeScreen.style.display = 'none';
+            }, 1200);
             
-            // Muzikani pley qilish (Enrique - Ring My Bells o'rniga moslashtirilgan ochiq audio oqimi)
+            // Muzikani pley qilish
             bgMusic.play().then(() => {
                 musicText.innerText = "MUSIQA: ON";
                 musicIcon.innerText = "🎵";
                 musicBtn.classList.add('border-amber-400');
-            }).catch(e => {
-                console.log("Musiqa avtomatik ijro etilmadi, foydalanuvchi tugmani bosishi kerak.", e);
-            });
+            }).catch(e => console.log("Avtomatik ijro bloklandi."));
         });
 
         // Musiqa On/Off
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
-                bgMusic.play().catch(e => console.log("Xatolik: ", e));
+                bgMusic.play().catch(e => console.log(e));
                 musicText.innerText = "MUSIQA: ON";
                 musicIcon.innerText = "🎵";
                 musicBtn.classList.add('border-amber-400');
@@ -270,14 +274,11 @@
         // Jonli Taymer (26-Iyun 2026, 18:00)
         const targetDate = new Date("June 26, 2026 18:00:00").getTime();
 
-        const timerInterval = setInterval(() => {
+        setInterval(() => {
             const now = new Date().getTime();
             const difference = targetDate - now;
 
-            if (difference < 0) {
-                clearInterval(timerInterval);
-                return;
-            }
+            if (difference < 0) return;
 
             const d = Math.floor(difference / (1000 * 60 * 60 * 24));
             const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
