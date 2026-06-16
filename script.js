@@ -6,19 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
 
-    // 1. Konvert bosilganda ochish va musiqani pley qilish
+    // 1. PROFESSIONAL OCHILISH VA AUDIO FAOLLASHTIRISH TIZIMI
     if (openBtn) {
         openBtn.addEventListener('click', () => {
+            // Konvertni chiroyli ko'tarib yo'qotish
             envelopeScreen.classList.add('envelope-hidden');
             
+            // Brauzer xavfsizligidan (Autoplay Block) o'tib musiqani chalish
             bgMusic.play().then(() => {
                 musicText.innerText = "MUSIC: ON";
                 musicIcon.innerText = "🎵";
-            }).catch(e => console.log("Avtomatik ijro to'sildi, tugma kutilmoqda."));
+            }).catch(error => {
+                console.log("Audio ishga tushmadi, tugma orqali yoqish kutilmoqda.");
+            });
         });
     }
 
-    // 2. Musiqa tugmasi on/off nazorati
+    // 2. MUSIQA TUGMASI NAZORATI (ON / OFF CHALISH)
     if (musicBtn) {
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
@@ -33,37 +37,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Jonli teskari taymer hisobi (Sana: 26-Iyun, 2026)
-    const weddingDate = new Date("June 26, 2026 18:00:00").getTime();
+    // 3. JONLI REAL VAQTDAGI TESKARI TAYMER (Sana: 26-Iyun, 2026 yil 18:00)
+    const targetDate = new Date("June 26, 2026 18:00:00").getTime();
 
-    setInterval(() => {
+    const updateTimer = () => {
         const now = new Date().getTime();
-        const diff = weddingDate - now;
+        const distance = targetDate - now;
 
-        if (diff < 0) return;
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            return;
+        }
 
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }
-    }, 1000);
+    };
 
-    // 4. RSVP Telegram ulashish qismi
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer(); // Birinchi marta darhol ishlashi uchun
+
+    // 4. RSVP FORMASINI TELEGRAMGA INTEGRATSIYA QILISH
     const rsvpForm = document.getElementById('rsvpForm');
     if (rsvpForm) {
-        rsvpForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('guestName').value;
-            const status = document.getElementById('attendance').value;
-            const textMessage = `✨ To'yga Tashrif Tasdig'i (Canva Style):%0A👤 Mehmon: ${name}%0A✉️ Holati: ${status}%0A💍 Kimga: Ziyodullo %26 Ruxshona`;
-            window.open(`https://t.me/share/url?url=${textMessage}`, '_blank');
+        rsvpForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const guestName = document.getElementById('guestName').value;
+            const attendanceStatus = document.getElementById('attendance').value;
+            
+            const message = `✨ Premium To'y Taklifnomasi Xabari:%0A👤 Mehmon: ${guestName}%0A✉️ Javob holati: ${attendanceStatus}%0A💍 Kimga: Ziyodullo %26 Ruxshona`;
+            window.open(`https://t.me/share/url?url=${message}`, '_blank');
         });
     }
 });
