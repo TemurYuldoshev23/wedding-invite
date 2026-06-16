@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To'y Taklifnomasi | Akbar & Mavzuna</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0b0b;
+            color: #f3f4f6;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Oltin rang gradient effekti */
+        .text-gold {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-gold {
+            border-image: linear-gradient(135deg, #bf953f, #b38728, #aa771c) 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <div class="fixed top-4 right-4 z-50">
+        <button id="musicBtn" class="bg-black/50 border border-amber-500/30 text-amber-400 p-3 rounded-full backdrop-blur-md shadow-lg hover:scale-105 transition-all text-sm">
+            🎵 Musiqa: OFF
+        </button>
+        <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    </div>
+
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 border-b border-amber-900/20">
+        <div class="absolute inset-6 border border-amber-500/10 pointer-events-none"></div>
+        <div class="absolute inset-8 border border-amber-500/20 pointer-events-none"></div>
+
+        <p class="text-amber-400 tracking-[0.3em] text-xs uppercase mb-6">Taklifnoma</p>
+        
+        <h1 class="font-serif text-5xl md:text-7xl font-bold mb-4 tracking-wide text-gold py-2">
+            Akbar <br class="md:hidden"> <span class="font-normal text-3xl md:text-5xl text-amber-200/70">&</span> <br class="md:hidden"> Mavzuna
+        </h1>
+        
+        <p class="font-serif italic text-amber-100/80 text-lg md:text-xl max-w-md mx-auto my-6 leading-relaxed">
+            Hayotimizning eng go'zal va unutilmas kunida sizni qadrdon mehmonimiz sifatida ko'rishdan mamnun bo'lamiz.
+        </p>
+
+        <div class="mt-8 border-t border-b border-amber-500/30 py-3 px-8 inline-block">
+            <p class="text-xl tracking-widest text-amber-400">12 . 06 . 2026</p>
+        </div>
+        
+        <div class="absolute bottom-10 animate-bounce text-amber-500/50 text-sm tracking-widest uppercase">
+            Pastga varaqlang ↓
+        </div>
+    </header>
+
+    <section class="py-20 px-4 max-w-4xl mx-auto text-center">
+        <h2 class="font-serif text-3xl text-gold mb-10">To'y tantanasigacha qoldi:</h2>
+        
+        <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto mb-16 text-center">
+            <div class="bg-zinc-900/50 p-4 border border-amber-500/20 rounded-lg backdrop-blur">
+                <span id="days" class="block text-2xl md:text-3xl font-bold text-amber-400">00</span>
+                <span class="text-[10px] uppercase tracking-wider text-zinc-400">Kun</span>
+            </div>
+            <div class="bg-zinc-900/50 p-4 border border-amber-500/20 rounded-lg backdrop-blur">
+                <span id="hours" class="block text-2xl md:text-3xl font-bold text-amber-400">00</span>
+                <span class="text-[10px] uppercase tracking-wider text-zinc-400">Soat</span>
+            </div>
+            <div class="bg-zinc-900/50 p-4 border border-amber-500/20 rounded-lg backdrop-blur">
+                <span id="minutes" class="block text-2xl md:text-3xl font-bold text-amber-400">00</span>
+                <span class="text-[10px] uppercase tracking-wider text-zinc-400">Daqiqa</span>
+            </div>
+            <div class="bg-zinc-900/50 p-4 border border-amber-500/20 rounded-lg backdrop-blur">
+                <span id="seconds" class="block text-2xl md:text-3xl font-bold text-amber-400">00</span>
+                <span class="text-[10px] uppercase tracking-wider text-zinc-400">Soniya</span>
+            </div>
+        </div>
+
+        <div class="bg-zinc-900/30 border border-amber-500/10 p-8 rounded-xl max-w-2xl mx-auto backdrop-blur-sm">
+            <h3 class="font-serif text-2xl text-amber-300 mb-6">Tantananing manzili</h3>
+            <p class="text-xl font-semibold text-white mb-2">"Ресторан Диёр"</p>
+            <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
+                Nikoh oqshomi soat 18:00 da boshlanadi. Tashrifingiz biz uchun cheksiz quvonch bag'ishlaydi.
+            </p>
+            
+            <a href="https://yandex.com/maps" target="_blank" class="inline-block bg-gradient-to-r from-amber-600 to-amber-500 text-black font-semibold px-8 py-3.5 rounded-full shadow-lg hover:from-amber-500 hover:to-amber-400 transition-all uppercase tracking-wider text-xs">
+                📍 Xaritada ko'rish
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-amber-900/20">
+        <p class="font-serif italic text-amber-200/50 text-sm">Sizni g'oyatda katta ehtirom ila kutib qolamiz!</p>
+        <p class="text-[10px] text-zinc-600 mt-4 tracking-widest uppercase">© 2026 Invite Studio</p>
+    </footer>
+
+    <script>
+        // Musiqa Pleyeri Skripti
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("Musiqa ijro etilmadi: ", e));
+                musicBtn.innerHTML = "🎵 Musiqa: ON";
+                musicBtn.classList.add('border-amber-400');
+            } else {
+                bgMusic.pause();
+                musicBtn.innerHTML = "🎵 Musiqa: OFF";
+                musicBtn.classList.remove('border-amber-400');
+            }
+        });
+
+        // Ortga hisoblash taymeri (Target: 12 June 2026 18:00:00)
+        const targetDate = new Date("June 12, 2026 18:00:00").getTime();
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+        }, 1000);
+    </script>
+</body>
+</html>
