@@ -1,84 +1,53 @@
-/* Premium To'y Taklifnomasi uchun Maxsus CSS */
-
-/* 1. Umumiy Sahifa Sozlamalari */
+/* Premium Matviy To'q Qora Fon va Oltin Elementlar Stilistikasi */
 body {
-    background-color: #030303;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0c;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #1a1510 0%, #0a0a0c 70%),
+        radial-gradient(circle at 50% 100%, #16120e 0%, #0a0a0c 80%);
     color: #f3f4f6;
-    background-image: radial-gradient(circle at 50% 50%, #0d0d0d 0%, #030303 100%);
-    overflow-x: hidden;
 }
 
-/* 2. Luxury Oltin Gradient (Matnlar uchun) */
+.font-serif { font-family: 'Playfair Display', serif; }
+.font-script { font-family: 'Great Vibes', cursive; }
+
+/* Rolex / Luxury Oltin Gradient teksturasi */
 .text-gold {
-    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    background: linear-gradient(135deg, #c5a059 0%, #fdf5e2 30%, #f4d08b 50%, #b3863a 85%, #dfba73 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 2px 8px rgba(186, 140, 50, 0.25));
+    filter: drop-shadow(0px 2px 10px rgba(197, 160, 89, 0.4));
 }
 
-/* Oltin Rangli Tugmalar va Fonlar */
 .bg-gold {
-    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
-    color: #000000;
+    background: linear-gradient(135deg, #b3863a 0%, #fdf5e2 50%, #c5a059 100%);
 }
 
-/* 3. Elegant va Yupqa Oltin Ramkalar */
-.luxury-box {
-    position: relative;
-    border: 1px solid rgba(191, 149, 63, 0.2);
-    background: rgba(10, 10, 10, 0.65);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 24px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+/* Glassmorphism shisha effekti */
+.luxury-card {
+    background: rgba(13, 13, 17, 0.75);
+    border: 1px solid rgba(197, 160, 89, 0.18);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.03);
 }
 
-.luxury-box::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: 1px solid rgba(191, 149, 63, 0.08);
-    border-radius: 18px;
-    pointer-events: none;
+/* Konvertning silliq yo'qolish effekti */
+.envelope-overlay {
+    transition: all 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* 4. Konvertning Silliq Yo'qolish Animatsiyasi */
-.envelope-fade-out {
+.envelope-fadeout {
+    transform: scale(1.05) translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transform: scale(1.08) translateY(-40px);
-    transition: all 1.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 5. Scroll davomida elementlarning chiroyli chiqishi (Reveal) */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
+/* Elegant siljish bounce animatsiyasi */
+.tracking-bounce {
+    animation: bounce 2s infinite;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Oltin Muhr uchun Pulsatsiya */
-.gold-seal {
-    box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7);
-    animation: pulse-seal 2s infinite;
-}
-
-@keyframes pulse-seal {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.5);
-    }
-    70% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 15px rgba(191, 149, 63, 0);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(191, 149, 63, 0);
-    }
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
