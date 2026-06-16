@@ -1,12 +1,11 @@
-/* Canva & European Nude Premium Stillari */
+/* --- CANVA PROFESSIONAL LUXURY EDITIONS CUSTOM CSS --- */
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f5ebe0;
+    background-color: #f4eae1;
     background-image: 
-        radial-gradient(circle at 30% 20%, #fdfbf7 0%, transparent 40%),
-        radial-gradient(circle at 70% 60%, #e3d5ca 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, #d5bdaf 0%, #f5ebe0 80%);
-    color: #4e4039;
+        radial-gradient(circle at 10% 20%, #fdfbf7 0%, transparent 45%),
+        radial-gradient(circle at 90% 50%, #e8ded4 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #dcd0c4 0%, #f4eae1 80%);
 }
 
 .font-serif { 
@@ -17,37 +16,54 @@ body {
     font-family: 'Great Vibes', cursive; 
 }
 
-/* Glassmorphic Cards */
-.canva-card {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(213, 189, 175, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 30px 70px rgba(142, 125, 115, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+/* Premium Shaffof Oyna Effekti (Glassmorphic Luxury) */
+.pro-luxury-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 35px 75px rgba(138, 120, 105, 0.09), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
-/* Konvert o'tish dinamikasi */
+/* 3D Telefon Mockup Ramkasi */
+.phone-container {
+    border: 12px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 45px 95px rgba(98, 83, 72, 0.18);
+}
+
+/* Taymer Katakchalari */
+.timer-box {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(138, 120, 105, 0.04);
+}
+
+/* Navigatsiya Tugmalari */
+.map-btn:hover {
+    background-color: #3a302a;
+    color: #fbf9f6;
+    border-color: #3a302a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(58, 48, 42, 0.15);
+}
+
+/* Konvert To'liq Yo'qolishi va Ochilishi Animatsiyasi */
 .envelope-overlay {
-    transition: all 1.4s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: all 1.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .envelope-hidden {
-    transform: scale(1.03) translateY(-100%);
+    transform: scale(1.05) translateY(-100%);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Markaziy telefon maketi */
-.phone-frame {
-    border: 10px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 40px 90px rgba(108, 92, 81, 0.2);
-}
-
+/* Silliq Kirish Effektlari */
 .fade-in-element {
-    animation: fadeIn 1.5s ease-out forwards;
+    animation: proFadeIn 1.8s ease-out forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+@keyframes proFadeIn {
+    from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
 }
